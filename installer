@@ -49,7 +49,7 @@ done
 MYFILE=$0
 VERSION_MAJOR=1
 VERSION_MINOR=3
-VERSION_PATCH=1
+VERSION_PATCH=0
 INSTALLER_VERSION="v${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
 STEPS=18
 OPSYS='unkown'
@@ -155,8 +155,8 @@ func_install() {
 
 step_updateos() {
 	print_header "Updating your OS"
-	apt-get -y update > /dev/null
-	apt-get -y upgrade > /dev/null
+	apt-get -y update
+	apt-get -y upgrade
 	echo ""
 }
 
@@ -570,7 +570,7 @@ step_finalise_script() {
 
 # Figure out where we are
 func_oscheck() {
-    status_println "Determining Linux distribution"
+    print_header "Determining Linux distribution"
 	if [ $PROCESSOR != 'x86_64']; then
 	echo "${RED}I'm not sure what kind of system this is, but i'm not installing on it.${NC}"
 	exit 1
