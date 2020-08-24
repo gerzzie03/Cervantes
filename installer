@@ -424,7 +424,7 @@ step_setup_phpmyadmin() {
 	echo ""
 }
 
-setup_setup_fullclient() {
+step_setup_fullclient() {
 	print_header "Creating Full Downloadable Client"
 	echo "This step will take around 10 minutes. Now is the perfect time to go"
 	echo "make a nice cup of coffee. The full client is also around 4GB. Please"
@@ -477,7 +477,7 @@ setup_setup_fullclient() {
 	fi
 }
 
-setup_finalise_imports() {
+step_finalise_imports() {
 	print_header "Preparing auto-config import files"
 	echo "//Cervantes
 userid: ${USERID}
@@ -531,7 +531,7 @@ A full client will be made available to you on your downloads page straight
 }
 
 
-setup_finalise_script() {
+step_finalise_script() {
 	print_header "Finishing up!"
 	sudo -u rathena sh -c "myvncserver start"
 	echo
