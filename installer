@@ -127,12 +127,6 @@ print_header() {
 	echo
 }
 
-
-## Final checks before installation
-func_oscheck
-func_install
-
-
 func_install() {
 	echo "\033c"
 	print_header "Welcome to Cervantes, an unattended installer by vHost"
@@ -534,7 +528,7 @@ A full client will be made available to you on your downloads page straight
  after completing the FluxCP installation process. This is located at:
  * URL: http://${SERVER_IP}/?module=pages&action=content&page=downloads
  * Filesystem: FluxCP Desktop Shortcut -> downloads folder" >> ${LOCAL_INFO_FILE}
-
+}
 
 
 setup_finalise_script() {
@@ -609,3 +603,5 @@ func_oscheck() {
     fi
 }
 
+func_oscheck
+func_install
