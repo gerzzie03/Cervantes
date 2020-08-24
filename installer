@@ -123,7 +123,7 @@ print_warning() {
 # Print a section header
 print_header() {
 	echo
-    echo -e "\033[0;40m\033[1;37m\033[1m$@\033[0m"
+    echo "\033[0;40m\033[1;37m\033[1m$@\033[0m"
 	echo
 }
 
@@ -155,8 +155,8 @@ func_install() {
 
 step_updateos() {
 	print_header "Updating your OS"
-	apt-get ${APTARGS} update > /dev/null
-	apt-get ${APTARGS} upgrade > /dev/null
+	apt-get -y update > /dev/null
+	apt-get -y upgrade > /dev/null
 	echo ""
 }
 
