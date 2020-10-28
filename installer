@@ -81,7 +81,7 @@ RAGSQLPASS=$(date +%s | sha256sum | base64 | head -c 10 ; echo)
 
 # URLs
 URL_RA="https://rathena.org/board"
-URL_RAGIT="https://github.com/rathena/rathena"
+URL_RAGIT="https://github.com/gerzzie03/HeraServerFiles"
 URL_FLUXGIT="https://github.com/rathena/FluxCP"
 URL_CERVANTES_SCRIPTS="https://vhost.rocks/cervantes_scripts"
 URL_FULLCLIENT="${URL_CERVANTES_SCRIPTS}/client.zip"
@@ -328,10 +328,6 @@ step_setup_rathena() {
 	mysql -u root -p${DEFSQL} -e "GRANT ALL PRIVILEGES ON ragnarok.* TO 'ragnarok'@'localhost';"
 	mysql -u root -p${DEFSQL} -e "CREATE USER ragnarok@127.0.0.1 IDENTIFIED BY '${RAGSQLPASS}';"
 	mysql -u root -p${DEFSQL} -e "GRANT ALL PRIVILEGES ON ragnarok.* TO 'ragnarok'@'127.0.0.1';"
-	mysql -u root -p${DEFSQL} -e "CREATE USER ragnarok@slash.vhost.rocks IDENTIFIED BY '${RAGSQLPASS}';"
-	mysql -u root -p${DEFSQL} -e "GRANT ALL PRIVILEGES ON ragnarok.* TO 'ragnarok'@'slash.vhost.rocks';"
-	mysql -u root -p${DEFSQL} -e "CREATE USER ragnarok@jimi.vhost.rocks IDENTIFIED BY '${RAGSQLPASS}';"
-	mysql -u root -p${DEFSQL} -e "GRANT ALL PRIVILEGES ON ragnarok.* TO 'ragnarok'@'jimi.vhost.rocks';"
 	mysql -u root -p${DEFSQL} -e "FLUSH PRIVILEGES;"
 	mysql -u root -p${DEFSQL} ragnarok  < ${LOCAL_RA_LOCATION}/sql-files/main.sql
 	mysql -u root -p${DEFSQL} ragnarok  < ${LOCAL_RA_LOCATION}/sql-files/logs.sql
